@@ -173,6 +173,301 @@ nav{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:fl
     animation: none !important;
   }
 }
+
+/* ===== Enhanced mobile-first responsive layout ===== */
+html, body {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+body {
+  overflow-y: auto;
+  -webkit-text-size-adjust: 100%;
+}
+.shell {
+  min-height: 100svh;
+  height: auto;
+  grid-template-rows: 64px minmax(0, 1fr) 48px;
+}
+main {
+  min-height: 0;
+  overflow: hidden;
+}
+.screen {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 24px 0 86px;
+}
+.panel-content {
+  max-height: none;
+  margin: auto;
+  padding: 12px 0;
+}
+nav {
+  max-width: calc(100vw - 24px);
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: #39eaff66 transparent;
+}
+.navbtn {
+  flex: 0 0 auto;
+}
+button, a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.card, .project-modal-box {
+  min-width: 0;
+}
+.contact-line span:last-child {
+  min-width: 0;
+}
+@media (max-width: 700px) {
+  html, body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .shell {
+    min-height: 100svh;
+    height: auto;
+    grid-template-rows: 54px minmax(0, 1fr) auto;
+    padding: 0 max(12px, env(safe-area-inset-left)) 0 max(12px, env(safe-area-inset-right));
+  }
+  header {
+    min-width: 0;
+    gap: 6px;
+    font-size: 8px;
+    letter-spacing: .06em;
+  }
+  .brand {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .status {
+    min-width: 0;
+    gap: 7px;
+  }
+  .status .online {
+    font-size: 7px;
+    white-space: nowrap;
+  }
+  #clock {
+    font-size: 8px;
+    white-space: nowrap;
+  }
+  .voice-btn {
+    min-width: 34px;
+    min-height: 34px;
+    justify-content: center;
+    padding: 7px;
+  }
+  main {
+    min-height: calc(100svh - 104px);
+    overflow: visible;
+  }
+  .screen {
+    position: absolute;
+    inset: 0;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 18px 0 92px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .home {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 10px 0 20px;
+  }
+  .copy {
+    order: 2;
+    width: 100%;
+  }
+  .copy h1 {
+    font-size: clamp(34px, 10vw, 54px);
+    line-height: 1;
+    overflow-wrap: anywhere;
+  }
+  .copy p {
+    max-width: 42rem;
+    font-size: 14px;
+    line-height: 1.65;
+    padding: 0 5px;
+  }
+  .eyebrow {
+    font-size: 9px;
+    line-height: 1.6;
+  }
+  .reactor-wrap {
+    order: 1;
+    width: min(58vw, 250px);
+    min-width: 0;
+    margin: 4px auto 12px;
+  }
+  .reactor-label {
+    font-size: clamp(6px, 1.8vw, 8px);
+    letter-spacing: .06em;
+  }
+  .chips, .actions {
+    justify-content: center;
+  }
+  .btn {
+    min-height: 42px;
+    padding: 12px 13px;
+    font-size: 9px;
+  }
+  .hud {
+    display: none;
+  }
+  .panel-content {
+    width: 100%;
+    max-height: none;
+    padding: 8px 0 16px;
+    justify-content: flex-start;
+  }
+  .panel-head {
+    align-items: flex-start;
+    gap: 8px;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+  }
+  .panel-head h2 {
+    font-size: clamp(25px, 7vw, 34px);
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+  .index {
+    flex: 0 0 auto;
+    font-size: 8px;
+    padding-top: 6px;
+  }
+  .cards, .skill-layout, .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .cards .card:nth-child(n) {
+    display: block;
+  }
+  .card {
+    padding: 16px;
+  }
+  .card h3 {
+    font-size: 16px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+  .card p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .tags {
+    gap: 6px;
+  }
+  .tags span {
+    font-size: 8px;
+    overflow-wrap: anywhere;
+  }
+  .skill-layout .card {
+    max-height: none;
+    overflow: visible;
+  }
+  .contact-line {
+    align-items: flex-start;
+    font-size: 9px;
+  }
+  nav {
+    position: fixed;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: none;
+    transform: none;
+    justify-content: flex-start;
+    gap: 4px;
+    padding: 6px;
+    border-radius: 8px;
+    z-index: 50;
+  }
+  .navbtn {
+    min-height: 40px;
+    padding: 10px 11px;
+    font-size: 8px;
+  }
+  footer {
+    min-height: 42px;
+    gap: 6px;
+    padding-bottom: env(safe-area-inset-bottom);
+    font-size: 7px;
+  }
+  #toast {
+    bottom: calc(68px + env(safe-area-inset-bottom));
+    max-width: calc(100vw - 28px);
+    text-align: center;
+  }
+  #projectModal {
+    padding: 12px;
+    align-items: center;
+  }
+  .project-modal-box {
+    width: 100%;
+    max-height: calc(100svh - 24px);
+    height: auto;
+    overflow-y: auto;
+    padding: 54px 16px 18px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .modal-grid {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .modal-reactor {
+    width: min(30vw, 112px);
+  }
+  .modal-details h2 {
+    font-size: clamp(23px, 7vw, 32px);
+    padding-right: 4px;
+  }
+  .modal-details p {
+    max-height: none;
+    overflow: visible;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    min-height: 38px;
+  }
+}
+@media (max-width: 380px) {
+  .brand { font-size: 9px; }
+  .status .online { font-size: 6px; }
+  #clock { font-size: 7px; }
+  .copy h1 { font-size: 34px; }
+  .navbtn { padding: 9px 9px; font-size: 7px; }
+  .panel-head { flex-wrap: wrap; }
+  .index { padding-top: 0; }
+}
+@media (min-width: 701px) and (max-width: 1024px) {
+  .panel-content { width: min(920px, 92vw); }
+  .home { width: min(100%, 900px); gap: 24px; }
+  .reactor-wrap { width: min(40vw, 390px); min-width: 220px; }
+}
+@media (max-height: 700px) and (max-width: 700px) {
+  .screen { padding-top: 10px; }
+  .reactor-wrap { width: min(42vw, 175px); margin-bottom: 4px; }
+  .copy h1 { margin: 8px 0; }
+  .copy p { margin: 7px auto; }
+}
+
 </style></head>
 <body>
 
